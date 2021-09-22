@@ -45,19 +45,6 @@ const windKmhParagraph = document.getElementById("wind-kmh");
     return weatherDataResponse.current;
   }
 
-async function getData() {
-  let addressValue = addressInput.value;
-  let cityValue = cityInput.value;
-
-  if (addressValue != "" || cityValue != "") {
-    document.getElementById("errorDiv").style.display = "none";
-    console.log(await getWeatherData(await getAddressLocation()));
-  } else {
-    document.getElementById("errorMessage").innerHTML =
-      "Veuillez remplir votre adresse ou votre ville";
-    document.getElementById("errorDiv").style.display = "flex";
-  }
-
   async function getData() {
     let addressValue = addressInput.value;
     let cityValue = cityInput.value;
@@ -80,6 +67,6 @@ async function getData() {
     windDegreeParagraph.innerHTML += data.wind_degree;
     windKmhParagraph.innerHTML += data.wind_kph;
   }
-}
+
 
 fetchButton.addEventListener("click", getData);
