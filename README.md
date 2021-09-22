@@ -28,10 +28,10 @@ In the future, we would like to develop this one page to develop its use.
 A DEVELOPPER
 
 ## 📁 Table of Contents
-* [Install the projet](#🛠-install-the-project)
-* [Use the project](#💻-use-the-project)
-* [Our team](#💯-our-team)
-* [License](#📜-license)
+* [Install the projet](#-install-the-project)
+* [Use the project](#-use-the-project)
+* [Our team](#-our-team)
+* [License](#-license)
 
 ## 🛠 Install the project
 To install the project in your file, you must open your terminal to go to the desired folder with the command:
