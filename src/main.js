@@ -55,12 +55,12 @@ const windKmhParagraph = document.getElementById("wind-kmh");
 
   //function for use previous function on the same time + manage the dom and display data in it + validator of inputs and data  value
   async function getData() {
-      cloudParagraph.innerHTML = "<strong>cloud</strong> :";
-      humidityParagraph.innerHTML = "<strong>humidity</strong> :";
-      lastUpdatedParagraph.innerHTML =  "<strong>lastUpdated</strong> : ";
-      temperatureParagraph.innerHTML = "<strong>temperature</strong> :" ;
-      windDegreeParagraph.innerHTML = "<strong>wind Degree</strong>  :" ;
-      windKmhParagraph.innerHTML = "<strong>wind Speed</strong>  :" ;
+      cloudParagraph.innerHTML = "<strong>Cloud</strong> : ";
+      humidityParagraph.innerHTML = "<strong>Humidity</strong> : ";
+      lastUpdatedParagraph.innerHTML =  "<strong>Last Updated</strong> : ";
+      temperatureParagraph.innerHTML = "<strong>Temperature</strong> : " ;
+      windDegreeParagraph.innerHTML = "<strong>Wind Degree</strong> : " ;
+      windKmhParagraph.innerHTML = "<strong>Wind Speed</strong> : " ;
 
       let addressValue = addressInput.value;
       let cityValue = cityInput.value;
@@ -73,7 +73,7 @@ const windKmhParagraph = document.getElementById("wind-kmh");
       } else {
         // else display error message and set data to null
         var data = null;
-        document.getElementById("errorMessage").innerHTML ="Veuillez remplir votre adresse ou votre ville";
+        document.getElementById("errorMessage").innerHTML ="Please fill in your address or city";
         document.getElementById("errorDiv").style.display = "flex"; 
       }
 
@@ -86,12 +86,12 @@ const windKmhParagraph = document.getElementById("wind-kmh");
         windDegreeParagraph.innerHTML += data.wind_degree + " degree";
         windKmhParagraph.innerHTML += data.wind_kph + " Km/h";
       }else {
-        cloudParagraph.innerHTML += "Aucune information" ;
-        humidityParagraph.innerHTML += "Aucune information";
-        lastUpdatedParagraph.innerHTML += "Aucune information";
-        temperatureParagraph.innerHTML += "Aucune information";
-        windDegreeParagraph.innerHTML += "Aucune information";
-        windKmhParagraph.innerHTML += "Aucune information";
+        cloudParagraph.innerHTML += "No information" ;
+        humidityParagraph.innerHTML += "No information";
+        lastUpdatedParagraph.innerHTML += "No information";
+        temperatureParagraph.innerHTML += "No information";
+        windDegreeParagraph.innerHTML += "No information";
+        windKmhParagraph.innerHTML += "No information";
       }
   }
 
