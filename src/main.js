@@ -47,37 +47,39 @@ const windKmhParagraph = document.getElementById("wind-kmh");
 
 async function getData() {
   let addressValue = addressInput.value;
-  let cityValue = cityInput.value;  
+  let cityValue = cityInput.value;
 
-  if(addressValue != "" || cityValue != "") {
+  if (addressValue != "" || cityValue != "") {
     document.getElementById("errorDiv").style.display = "none";
     console.log(await getWeatherData(await getAddressLocation()));
-  }else{
-    document.getElementById("errorMessage").innerHTML = "Veuillez remplir votre adresse ou votre ville";
+  } else {
+    document.getElementById("errorMessage").innerHTML =
+      "Veuillez remplir votre adresse ou votre ville";
     document.getElementById("errorDiv").style.display = "flex";
   }
 
-async function getData() {
-  let addressValue = addressInput.value;
-  let cityValue = cityInput.value; 
-  let data = await getWeatherData(await getAddressLocation());
+  async function getData() {
+    let addressValue = addressInput.value;
+    let cityValue = cityInput.value;
+    let data = await getWeatherData(await getAddressLocation());
 
-  if(addressValue != "" || cityValue != "") {
-    document.getElementById("errorDiv").style.display = "none";
-    console.log(await getWeatherData(await getAddressLocation()));
-  }else{
-    document.getElementById("errorMessage").innerHTML = "Veuillez remplir votre adresse ou votre ville";
-    document.getElementById("errorDiv").style.display = "flex";
+    if (addressValue != "" || cityValue != "") {
+      document.getElementById("errorDiv").style.display = "none";
+      console.log(await getWeatherData(await getAddressLocation()));
+    } else {
+      document.getElementById("errorMessage").innerHTML =
+        "Veuillez remplir votre adresse ou votre ville";
+      document.getElementById("errorDiv").style.display = "flex";
+    }
+    console.log(data);
+
+    cloudParagraph.innerHTML += data.cloud;
+    humidityParagraph.innerHTML += data.humidity;
+    lastUpdatedParagraph.innerHTML += data.last_updated;
+    temperatureParagraph.innerHTML += data.temp_c;
+    windDegreeParagraph.innerHTML += data.wind_degree;
+    windKmhParagraph.innerHTML += data.wind_kph;
   }
-  console.log(data);
-
-  cloudParagraph.innerHTML += data.cloud;
-  humidityParagraph.innerHTML += data.humidity;
-  lastUpdatedParagraph.innerHTML += data.last_updated;
-  temperatureParagraph.innerHTML += data.temp_c;
-  windDegreeParagraph.innerHTML += data.wind_degree;
-  windKmhParagraph.innerHTML += data.wind_kph;
 }
 
-  fetchButton.addEventListener("click", getData);
-  
+fetchButton.addEventListener("click", getData);
