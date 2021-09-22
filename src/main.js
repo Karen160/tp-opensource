@@ -1,9 +1,16 @@
-const fetchButton = document.getElementById("fetch-button");
 const api_key = "66e2c2bd815945a7860144831212109";
+
+const fetchButton = document.getElementById("fetch-button");
 const addressInput = document.getElementById("address-input");
 const cityInput = document.getElementById("city-input");
 const codeInput = document.getElementById("code-input");
 
+const cloudParagraph = document.getElementById("cloud");
+const humidityParagraph = document.getElementById("humidity");
+const lastUpdatedParagraph = document.getElementById("last-updated");
+const temperatureParagraph = document.getElementById("temperature");
+const windDegreeParagraph = document.getElementById("wind-degree");
+const windKmhParagraph = document.getElementById("wind-kmh");
 
   async function getAddressLocation() {
     let addressValue = addressInput.value;
@@ -50,6 +57,26 @@ async function getData() {
     document.getElementById("errorDiv").style.display = "flex";
   }
 
+async function getData() {
+  let addressValue = addressInput.value;
+  let cityValue = cityInput.value; 
+  let data = await getWeatherData(await getAddressLocation());
+
+  if(addressValue != "" || cityValue != "") {
+    document.getElementById("errorDiv").style.display = "none";
+    console.log(await getWeatherData(await getAddressLocation()));
+  }else{
+    document.getElementById("errorMessage").innerHTML = "Veuillez remplir votre adresse ou votre ville";
+    document.getElementById("errorDiv").style.display = "flex";
+  }
+  console.log(data);
+
+  cloudParagraph.innerHTML += data.cloud;
+  humidityParagraph.innerHTML += data.humidity;
+  lastUpdatedParagraph.innerHTML += data.last_updated;
+  temperatureParagraph.innerHTML += data.temp_c;
+  windDegreeParagraph.innerHTML += data.wind_degree;
+  windKmhParagraph.innerHTML += data.wind_kph;
 }
 
   fetchButton.addEventListener("click", getData);
