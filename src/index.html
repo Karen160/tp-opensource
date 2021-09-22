@@ -3,28 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tp Opensource : Find the weather</title>
 </head>
 <body>
-    <div style="display: none;" id="errorDiv">
-        <h2 id="errorMessage"></h2>
-    </div>
-    <button id="fetch-button">Fetch</button>
-    <input type="text" placeholder="Rentrez votre adresse" id="address-input">
-    <input type="text" placeholder="Rentrez votre ville" id="city-input">
-    <input type="number" placeholder="Rentrez votre code postal" id="code-input">
-    
-    <div id="container">
-        <p id="cloud"></p>
-        <p id="humidity"></p>
-        <p id="last-updated"></p>
-        <p id="temperature"></p>
-        <p id="wind-degree"></p>
-        <p id="wind-kmh"></p>
-    </div>
-    
+    <header>
+        <h1>Find the weather</h1>
+        <p>Do you want to know the weather forecast for the specific location? Then fill out the form below</p>
+    </header>
+    <main>
+        <h3>The weather form</h3>
 
+        <!-- Error message -->
+        <div style="display: none;" id="errorDiv">
+            <p id="errorMessage"></p>
+        </div>
+        <form>
+            <input type="text" placeholder="Your address" id="address-input">
+            <br>
+            <input type="text" placeholder="Your city" id="city-input">
+            <br>
+            <input type="number" placeholder="Your postal code" id="code-input">
+            <br>
+            <button type="button" id="fetch-button">Fetch</button>
+        </form>
+
+        <!-- Weather information -->
+        <div id="container">
+            <h3>Your search results</h3>
+            <p id="cloud"></p>
+            <p id="humidity"></p>
+            <p id="last-updated"></p>
+            <p id="temperature"></p>
+            <p id="wind-degree"></p>
+            <p id="wind-kmh"></p>
+        </div>
+    </main>
+    <footer>
+        <p>Realized by Ancel Corentin, Azoulay Karen and Burstein Benjamin</p>
+    </footer>
 </body>
 </html>
 <script src="main.js"></script>

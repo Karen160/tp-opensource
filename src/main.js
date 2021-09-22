@@ -24,10 +24,9 @@ const windKmhParagraph = document.getElementById("wind-kmh");
           cityValue +
           "&postcode=" + codeValue 
       );
-   
+
     const addressLocation = await addressLocationData.json();
     return addressLocation.features[0].geometry.coordinates;
-
   }
   
   async function getWeatherData(coords) {
@@ -41,12 +40,11 @@ const windKmhParagraph = document.getElementById("wind-kmh");
     );
   
     const weatherDataResponse = await weatherData.json();
-  
     return weatherDataResponse.current;
   }
 
   async function getData() {
-     cloudParagraph.innerHTML = "<strong>cloud</strong> :";
+      cloudParagraph.innerHTML = "<strong>cloud</strong> :";
       humidityParagraph.innerHTML = "<strong>humidity</strong> :";
       lastUpdatedParagraph.innerHTML =  "<strong>lastUpdated</strong> : ";
       temperatureParagraph.innerHTML = "<strong>temperature</strong> :" ;
