@@ -21,9 +21,9 @@ Here are the different links we used to help us create this one page :
 
 ### The challenges of the projects
 During the development of this one page we encountered many challenges.
-One of the principal challenge was to find a good api taht we can use freely and with pertinent data.
-The second challenge was to obtain the coordinate for the api so we needed to use a second api.
-The last challenge was to find the good emplacement on the geo-gouv api and for that we decided to propose to propose 3 inputs :
+* One of the principal challenge was to find a good api that we can use freely and with pertinent data.
+* The second challenge was to obtain the coordinate for the api so we needed to use a second api.
+* The last challenge was to find the good emplacement on the geo-gouv api and for that we decided to propose to propose 3 inputs :
 * One for the adress
 * One for the city
 * One for the postcode
@@ -32,7 +32,7 @@ In the future, we would like to develop this one page to develop its use.
 
 * Add a map for just click the adress
 * Add some interractive images on the data's display
-* All good proposition by you, the users
+** All good proposition by you, the user*
 
 ## 📁 Table of Contents
 * [Install the project](#-install-the-project)
