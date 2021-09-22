@@ -28,7 +28,7 @@ In the future, we would like to develop this one page to develop its use.
 A DEVELOPPER
 
 ## 📁 Table of Contents
-* [Install the projet](#-install-the-project)
+* [Install the project](#-install-the-project)
 * [Use the project](#-use-the-project)
 * [Our team](#-our-team)
 * [License](#-license)
