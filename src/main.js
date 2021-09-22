@@ -1,5 +1,7 @@
+// api key
 const api_key = "66e2c2bd815945a7860144831212109";
 
+//Recovery of the elements of the dom on which we interact
 const fetchButton = document.getElementById("fetch-button");
 const addressInput = document.getElementById("address-input");
 const cityInput = document.getElementById("city-input");
@@ -12,24 +14,30 @@ const temperatureParagraph = document.getElementById("temperature");
 const windDegreeParagraph = document.getElementById("wind-degree");
 const windKmhParagraph = document.getElementById("wind-kmh");
 
+//Function for get the latitude and the longitude thanks to the adress, city and postcode
   async function getAddressLocation() {
+    // Recovery of input values
     let addressValue = addressInput.value;
     let cityValue = cityInput.value;
     let codeValue = codeInput.value; 
 
-
+//Api call to the french geo gouv thanls to teh city, adress and post cod
     const addressLocationData = await fetch(
         "https://api-adresse.data.gouv.fr/search/?q=" +
           addressValue +
           cityValue +
           "&postcode=" + codeValue 
       );
-
+    
+     //parse data into json
     const addressLocation = await addressLocationData.json();
+    //return the coordinates 
     return addressLocation.features[0].geometry.coordinates;
   }
   
+  //function to get the weather of a place
   async function getWeatherData(coords) {
+    //Api cal to the weatherapi thanks to the api keyn the latitude and longitude gets on the geo gouv api call
     const weatherData = await fetch(
       "http://api.weatherapi.com/v1/current.json?key=" +
         api_key +
@@ -38,11 +46,14 @@ const windKmhParagraph = document.getElementById("wind-kmh");
         "," +
         coords[0]
     );
-  
+  //parse data into json
     const weatherDataResponse = await weatherData.json();
+
+    //return data
     return weatherDataResponse.current;
   }
 
+  //function for use previous function on the same time + manage the dom and display data in it + validator of inputs and data  value
   async function getData() {
       cloudParagraph.innerHTML = "<strong>cloud</strong> :";
       humidityParagraph.innerHTML = "<strong>humidity</strong> :";
@@ -51,35 +62,38 @@ const windKmhParagraph = document.getElementById("wind-kmh");
       windDegreeParagraph.innerHTML = "<strong>wind Degree</strong>  :" ;
       windKmhParagraph.innerHTML = "<strong>wind Speed</strong>  :" ;
 
-    let addressValue = addressInput.value;
-    let cityValue = cityInput.value;
+      let addressValue = addressInput.value;
+      let cityValue = cityInput.value;
 
-    if (addressValue != "" || cityValue != "") {
-      document.getElementById("errorDiv").style.display = "none";
-      var data = await getWeatherData(await getAddressLocation());
-    } else {
-      var data = null;
-      document.getElementById("errorMessage").innerHTML ="Veuillez remplir votre adresse ou votre ville";
-      document.getElementById("errorDiv").style.display = "flex"; 
-    }
+      //if the adress or the city is not empty 
+      if (addressValue != "" || cityValue != "") {
+        document.getElementById("errorDiv").style.display = "none";
+        // get the weather with coordinate in parameters  wich are gets by getAdress function
+        var data = await getWeatherData(await getAddressLocation());
+      } else {
+        // else display error message and set data to null
+        var data = null;
+        document.getElementById("errorMessage").innerHTML ="Veuillez remplir votre adresse ou votre ville";
+        document.getElementById("errorDiv").style.display = "flex"; 
+      }
 
-    if (data != null) {
-      cloudParagraph.innerHTML += data.cloud + "%";
-      humidityParagraph.innerHTML += data.humidity + "%";
-      lastUpdatedParagraph.innerHTML += "at " + data.last_updated;
-      temperatureParagraph.innerHTML += data.temp_c + " degrees celcius";
-      windDegreeParagraph.innerHTML += data.wind_degree + " degree";
-      windKmhParagraph.innerHTML += data.wind_kph + " Km/h";
-    }else {
-      cloudParagraph.innerHTML += "Aucune information" ;
-      humidityParagraph.innerHTML += "Aucune information";
-      lastUpdatedParagraph.innerHTML += "Aucune information";
-      temperatureParagraph.innerHTML += "Aucune information";
-      windDegreeParagraph.innerHTML += "Aucune information";
-      windKmhParagraph.innerHTML += "Aucune information";
-    }
-    
+      //if data is not null display the data else display a predefined message
+      if (data != null) {
+        cloudParagraph.innerHTML += data.cloud + "%";
+        humidityParagraph.innerHTML += data.humidity + "%";
+        lastUpdatedParagraph.innerHTML += "at " + data.last_updated;
+        temperatureParagraph.innerHTML += data.temp_c + " degrees celcius";
+        windDegreeParagraph.innerHTML += data.wind_degree + " degree";
+        windKmhParagraph.innerHTML += data.wind_kph + " Km/h";
+      }else {
+        cloudParagraph.innerHTML += "Aucune information" ;
+        humidityParagraph.innerHTML += "Aucune information";
+        lastUpdatedParagraph.innerHTML += "Aucune information";
+        temperatureParagraph.innerHTML += "Aucune information";
+        windDegreeParagraph.innerHTML += "Aucune information";
+        windKmhParagraph.innerHTML += "Aucune information";
+      }
   }
 
-
+//call the getData function when a click is do on the fetchbutton 
 fetchButton.addEventListener("click", getData);
