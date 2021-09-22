@@ -8,15 +8,16 @@ const codeInput = document.getElementById("code-input");
   async function getAddressLocation() {
     let addressValue = addressInput.value;
     let cityValue = cityInput.value;
-    let codeValue = codeInput.value;  
+    let codeValue = codeInput.value; 
+
 
     const addressLocationData = await fetch(
-      "https://api-adresse.data.gouv.fr/search/?q=" +
-        addressValue +
-        cityValue +
-        "$postcode=" + codeValue 
-    );
-  
+        "https://api-adresse.data.gouv.fr/search/?q=" +
+          addressValue +
+          cityValue +
+          "$postcode=" + codeValue 
+      );
+   
     const addressLocation = await addressLocationData.json();
     return addressLocation.features[0].geometry.coordinates;
 
@@ -42,10 +43,11 @@ async function getData() {
   let cityValue = cityInput.value;  
 
   if(addressValue != "" || cityValue != "") {
-    document.getElementById("error").style.display = "none";
+    document.getElementById("errorDiv").style.display = "none";
     console.log(await getWeatherData(await getAddressLocation()));
   }else{
-    document.getElementById("error").style.display = "flex";
+    document.getElementById("errorMessage").innerHTML = "Veuillez remplir votre adresse ou votre ville";
+    document.getElementById("errorDiv").style.display = "flex";
   }
 
 }
