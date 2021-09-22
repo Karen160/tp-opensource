@@ -32,7 +32,7 @@ In the future, we would like to develop this one page to develop its use.
 
 * Add a map for just click the adress
 * Add some interractive images on the data's display
-** All good proposition by you, the user*
+* All good proposition by you, the user*
 
 ## 📁 Table of Contents
 * [Install the project](#-install-the-project)
