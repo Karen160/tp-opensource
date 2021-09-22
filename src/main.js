@@ -12,42 +12,63 @@ const temperatureParagraph = document.getElementById("temperature");
 const windDegreeParagraph = document.getElementById("wind-degree");
 const windKmhParagraph = document.getElementById("wind-kmh");
 
-async function getAddressLocation() {
-  let addressValue = addressInput.value;
-  let cityValue = cityInput.value;
-  let codeValue = codeInput.value;
+  async function getAddressLocation() {
+    let addressValue = addressInput.value;
+    let cityValue = cityInput.value;
+    let codeValue = codeInput.value; 
 
-  const addressLocationData = await fetch(
-    "https://api-adresse.data.gouv.fr/search/?q=" +
-      addressValue +
-      cityValue +
-      "$postcode=" +
-      codeValue
-  );
 
-  const addressLocation = await addressLocationData.json();
+    const addressLocationData = await fetch(
+        "https://api-adresse.data.gouv.fr/search/?q=" +
+          addressValue +
+          cityValue +
+          "$postcode=" + codeValue 
+      );
+   
+    const addressLocation = await addressLocationData.json();
+    return addressLocation.features[0].geometry.coordinates;
 
-  return addressLocation.features[0].geometry.coordinates;
-}
-
-async function getWeatherData(coords) {
-  const weatherData = await fetch(
-    "http://api.weatherapi.com/v1/current.json?key=" +
-      api_key +
-      "&q=" +
-      coords[1] +
-      "," +
-      coords[0]
-  );
-
-  const weatherDataResponse = await weatherData.json();
-
-  return weatherDataResponse.current;
-}
+  }
+  
+  async function getWeatherData(coords) {
+    const weatherData = await fetch(
+      "http://api.weatherapi.com/v1/current.json?key=" +
+        api_key +
+        "&q=" +
+        coords[1] +
+        "," +
+        coords[0]
+    );
+  
+    const weatherDataResponse = await weatherData.json();
+  
+    return weatherDataResponse.current;
+  }
 
 async function getData() {
+  let addressValue = addressInput.value;
+  let cityValue = cityInput.value;  
+
+  if(addressValue != "" || cityValue != "") {
+    document.getElementById("errorDiv").style.display = "none";
+    console.log(await getWeatherData(await getAddressLocation()));
+  }else{
+    document.getElementById("errorMessage").innerHTML = "Veuillez remplir votre adresse ou votre ville";
+    document.getElementById("errorDiv").style.display = "flex";
+  }
+
+async function getData() {
+  let addressValue = addressInput.value;
+  let cityValue = cityInput.value; 
   let data = await getWeatherData(await getAddressLocation());
 
+  if(addressValue != "" || cityValue != "") {
+    document.getElementById("errorDiv").style.display = "none";
+    console.log(await getWeatherData(await getAddressLocation()));
+  }else{
+    document.getElementById("errorMessage").innerHTML = "Veuillez remplir votre adresse ou votre ville";
+    document.getElementById("errorDiv").style.display = "flex";
+  }
   console.log(data);
 
   cloudParagraph.innerHTML += data.cloud;
@@ -58,4 +79,5 @@ async function getData() {
   windKmhParagraph.innerHTML += data.wind_kph;
 }
 
-fetchButton.addEventListener("click", getData);
+  fetchButton.addEventListener("click", getData);
+  
