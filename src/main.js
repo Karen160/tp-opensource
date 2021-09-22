@@ -46,26 +46,41 @@ const windKmhParagraph = document.getElementById("wind-kmh");
   }
 
   async function getData() {
+     cloudParagraph.innerHTML = "<strong>cloud</strong> :";
+      humidityParagraph.innerHTML = "<strong>humidity</strong> :";
+      lastUpdatedParagraph.innerHTML =  "<strong>lastUpdated</strong> : ";
+      temperatureParagraph.innerHTML = "<strong>temperature</strong> :" ;
+      windDegreeParagraph.innerHTML = "<strong>wind Degree</strong>  :" ;
+      windKmhParagraph.innerHTML = "<strong>wind Speed</strong>  :" ;
+
     let addressValue = addressInput.value;
     let cityValue = cityInput.value;
-    let data = await getWeatherData(await getAddressLocation());
 
     if (addressValue != "" || cityValue != "") {
       document.getElementById("errorDiv").style.display = "none";
-      console.log(await getWeatherData(await getAddressLocation()));
+      var data = await getWeatherData(await getAddressLocation());
     } else {
-      document.getElementById("errorMessage").innerHTML =
-        "Veuillez remplir votre adresse ou votre ville";
-      document.getElementById("errorDiv").style.display = "flex";
+      var data = null;
+      document.getElementById("errorMessage").innerHTML ="Veuillez remplir votre adresse ou votre ville";
+      document.getElementById("errorDiv").style.display = "flex"; 
     }
-    console.log(data);
 
-    cloudParagraph.innerHTML += data.cloud;
-    humidityParagraph.innerHTML += data.humidity;
-    lastUpdatedParagraph.innerHTML += data.last_updated;
-    temperatureParagraph.innerHTML += data.temp_c;
-    windDegreeParagraph.innerHTML += data.wind_degree;
-    windKmhParagraph.innerHTML += data.wind_kph;
+    if (data != null) {
+      cloudParagraph.innerHTML += data.cloud + "%";
+      humidityParagraph.innerHTML += data.humidity + "%";
+      lastUpdatedParagraph.innerHTML += "at " + data.last_updated;
+      temperatureParagraph.innerHTML += data.temp_c + " degrees celcius";
+      windDegreeParagraph.innerHTML += data.wind_degree + " degree";
+      windKmhParagraph.innerHTML += data.wind_kph + " Km/h";
+    }else {
+      cloudParagraph.innerHTML += "Aucune information" ;
+      humidityParagraph.innerHTML += "Aucune information";
+      lastUpdatedParagraph.innerHTML += "Aucune information";
+      temperatureParagraph.innerHTML += "Aucune information";
+      windDegreeParagraph.innerHTML += "Aucune information";
+      windKmhParagraph.innerHTML += "Aucune information";
+    }
+    
   }
 
 
