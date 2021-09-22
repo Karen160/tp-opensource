@@ -1,0 +1,88 @@
+*{
+    margin : 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: aliceblue;
+    padding: 40px 10px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+h3{
+    margin: 50px 0 30px;
+    text-align: center;
+}
+
+form{
+    display: block;
+    margin: 20px auto;
+}
+
+input{
+    padding: 10px;
+    width: 500px;
+    margin: 5px auto;
+    display: block;
+    border-radius: 20px;
+    border: 1px solid grey;
+}
+
+button{
+    display: block;
+    margin: auto;
+    padding: 10px 30px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    border: 1px solid grey;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#errorDiv{
+    width: 100%;
+}
+
+#errorMessage{
+    color: red;
+    margin: auto;
+}
+
+footer{
+    background-color: gray;
+    padding: 25px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+#container{
+    display: block;
+    margin: auto;
+    width: fit-content;
+}
+
+#container p{
+    margin: 8px 0;
+}
+
+@media screen and (max-width: 768px){
+    input{
+        width: 80%;
+    }
+
+    main{
+        margin-bottom: 200px;
+    }
+}

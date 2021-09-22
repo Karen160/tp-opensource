@@ -28,12 +28,11 @@ const windKmhParagraph = document.getElementById("wind-kmh");
           cityValue +
           "&postcode=" + codeValue 
       );
-   
-      //parse data into json
+    
+     //parse data into json
     const addressLocation = await addressLocationData.json();
     //return the coordinates 
     return addressLocation.features[0].geometry.coordinates;
-
   }
   
   //function to get the weather of a place
@@ -49,14 +48,13 @@ const windKmhParagraph = document.getElementById("wind-kmh");
     );
   //parse data into json
     const weatherDataResponse = await weatherData.json();
-  
+
     //return data
     return weatherDataResponse.current;
   }
 
   //function for use previous function on the same time + manage the dom and display data in it + validator of inputs and data  value
   async function getData() {
-    
       cloudParagraph.innerHTML = "<strong>cloud</strong> :";
       humidityParagraph.innerHTML = "<strong>humidity</strong> :";
       lastUpdatedParagraph.innerHTML =  "<strong>lastUpdated</strong> : ";
