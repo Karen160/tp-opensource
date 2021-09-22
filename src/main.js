@@ -22,7 +22,7 @@ const windKmhParagraph = document.getElementById("wind-kmh");
         "https://api-adresse.data.gouv.fr/search/?q=" +
           addressValue +
           cityValue +
-          "$postcode=" + codeValue 
+          "&postcode=" + codeValue 
       );
    
     const addressLocation = await addressLocationData.json();
