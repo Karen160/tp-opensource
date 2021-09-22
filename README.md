@@ -1,8 +1,8 @@
 # Tp Opensource : Find the weather
 
-[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
 
-## Introduction
+## 👋 Introduction
 ### Description
 The objective of this github repository is to be able to find the weather forecast for a place. For this, in the one page the user must enter information concerning this place: the address and the postal code.
 
@@ -27,11 +27,11 @@ A DEVELOPPER
 In the future, we would like to develop this one page to develop its use.
 A DEVELOPPER
 
-## Table of Contents
-* [Install the projet](#install-the-project)
-* [Use the project](#use-the-project)
-* [Our team](#our-team)
-* [License](#license)
+## 📁 Table of Contents
+* [Install the projet](#🛠-install-the-project)
+* [Use the project](#💻-use-the-project)
+* [Our team](#💯-our-team)
+* [License](#📜-license)
 
 ## 🛠 Install the project
 To install the project in your file, you must open your terminal to go to the desired folder with the command:
@@ -54,13 +54,13 @@ Here is the project is installed!
 Once the project is cloned, you need to open the index.html on your web browser.
 You can now fill in the information requested on the one page to know the weather forecast for the desired location.
 
-## Our Team
+## 💯 Our Team
 This project was carried out by these three developers :
 * [Karen Azoulay](https://github.com/Karen160)
 * [Corentin Ancel](https://github.com/Cocancels)
 * [Benjamin Burstein](https://github.com/IIMBenjaminBurstein)
 
-## License 
+## 📜 License 
 MIT License
 
 Copyright (c) 2021 Karen Azoulay, Corentin Ancel, Benjamin Burstein
