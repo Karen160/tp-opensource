@@ -47,6 +47,10 @@ button:hover{
     cursor: pointer;
 }
 
+main{
+    margin-bottom: 200px;
+}
+
 #errorDiv{
     width: 100%;
 }
@@ -80,9 +84,5 @@ footer{
 @media screen and (max-width: 768px){
     input{
         width: 80%;
-    }
-
-    main{
-        margin-bottom: 200px;
     }
 }
